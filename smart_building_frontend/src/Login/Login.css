@@ -1,0 +1,92 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    /* text-align: center; */
+}
+
+
+.login-content {
+    background: #fff;
+    box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
+    border-radius: 2px;
+    width: 500px;
+    display: inline-block;
+    margin-top: 30px;
+    vertical-align: middle;
+    position: relative;    
+    padding: 35px;
+    text-align: center;
+}
+
+
+.social-link {
+    display: flex;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.65);
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.google img {
+    width: 40px;
+    margin-left: 5px;
+}
+
+.google span {
+    width: 100%;
+    margin-right: 45px;
+}
+
+.facebook {
+    height: 40px;
+}
+
+.facebook img {
+    height: 25px;
+    margin-left: 12px;
+}
+
+.facebook span {
+    width: 100%;
+    margin-right: 37px;
+}
+
+.github {
+    height: 40px;
+}
+
+.github img {
+    height: 25px;
+    margin-left: 12px;
+}
+
+.github span {
+    width: 100%;
+    margin-right: 37px;
+}
+
+.signup-link {
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+}
+
+.login-title {
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.or-separator {
+   width: 100%; 
+   text-align: center; 
+   border-bottom: 1px solid rgb(160, 160, 160); 
+   line-height: 0.1em;
+   margin: 30px 0 20px;
+}
+
+.or-separator span {
+    background:#fff; 
+    padding:0 10px; 
+}
