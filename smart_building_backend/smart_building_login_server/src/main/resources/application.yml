@@ -1,0 +1,83 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: smart_building_login_server
+  datasource:
+    url: jdbc:mysql://localhost:3306/smart_building?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    initialization-mode: always
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: ${google.clientId}
+            clientSecret: ${google.clientSecret}
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - profile
+          facebook:
+            clientId: ${facebook.clientId}
+            clientSecret: ${facebook.clientSecret}
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - public_profile
+          github:
+            clientId: ${github.clientId}
+            clientSecret: ${github.clientSecret}
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - user:email
+              - read:user
+        provider:
+          facebook:
+            authorizationUri: https://www.facebook.com/v3.0/dialog/oauth
+            tokenUri: https://graph.facebook.com/v3.0/oauth/access_token
+            userInfoUri: https://graph.facebook.com/v3.0/me?fields=id,first_name,middle_name,last_name,name,email,verified,is_verified,picture.width(250).height(250)
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+zuul:
+  prefix: /api
+  routes:
+    airepressure:
+      path: /airpressure/**
+      serviceId: smart_building_air_pressure
+    rootmeeting:
+      path: /roommeeting/**
+      serviceId: smart_building_room_meeting
+    rabbitpublish:
+      path: /rabbitpublish/**
+      serviceId: smart_building_rabbitmq_publisher
+    rabbitsubscribe:
+      path: /rabbitsubscribe/**
+      serviceId: smart_building_rabbitmq_subscriber
+  sensitiveHeaders:
+
+app:
+  oauth2:
+    authorizedRedirectUris:
+      - http://localhost:3000/oauth2/redirect
+      - myandroidapp://oauth2/redirect
+      - myiosapp://oauth2/redirect

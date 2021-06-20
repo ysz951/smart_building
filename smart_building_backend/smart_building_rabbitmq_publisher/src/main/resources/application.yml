@@ -1,0 +1,35 @@
+#server.port = 8081
+#
+#spring.rabbitmq.host=localhost
+#spring.rabbitmq.port=5672
+#spring.rabbitmq.username=guest
+#spring.rabbitmq.password=guest
+#
+#spring.cloud.stream.bindings.output.destination=orders-exchange
+#
+
+spring:
+  application:
+    name: smart_building_rabbitmq_publisher
+  rabbitmq:
+    host: localhost
+    port: 5672
+    uesrname: guest
+    password: guest
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: smart-message
+server:
+  port: 8083
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}.${random.int}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+

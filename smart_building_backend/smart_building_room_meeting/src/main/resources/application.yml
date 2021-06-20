@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: smart_building_room_meeting
+  datasource:
+    url: jdbc:mysql://localhost:3306/smart_building?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+server:
+  port: 8082
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}.${random.int}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
