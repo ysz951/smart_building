@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: smart_building_air_pressure
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/smart_db
+server:
+  port: 8081
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}.${random.int}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/

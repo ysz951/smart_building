@@ -1,0 +1,27 @@
+
+
+spring:
+  application:
+    name: smart_building_rabbitmq_subscriber
+  rabbitmq:
+    host: localhost
+    port: 5672
+    uesrname: guest
+    password: guest
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: smart-message
+          group: smart-queue
+server:
+  port: 8084
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}.${random.int}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
