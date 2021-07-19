@@ -10,7 +10,7 @@
 
 spring:
   application:
-    name: smart_building_rabbitmq_publisher
+    name: smart-building-rabbitmq-publisher
   rabbitmq:
     host: localhost
     port: 5672
