@@ -1,6 +1,6 @@
 spring:
   application:
-    name: smart_building_room_meeting
+    name: smart-building-room-meeting
   datasource:
     url: jdbc:mysql://localhost:3306/smart_building?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
     username: ${SPRING_DATASOURCE_USERNAME}

@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: smart_building_login_server
+    name: smart-building-login-server
   datasource:
     url: jdbc:mysql://localhost:3306/smart_building?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
     username: ${SPRING_DATASOURCE_USERNAME}
@@ -63,16 +63,16 @@ zuul:
   routes:
     airepressure:
       path: /airpressure/**
-      serviceId: smart_building_air_pressure
+      serviceId: smart-building-air-pressure
     rootmeeting:
       path: /roommeeting/**
-      serviceId: smart_building_room_meeting
+      serviceId: smart-building-room-meeting
     rabbitpublish:
       path: /rabbitpublish/**
-      serviceId: smart_building_rabbitmq_publisher
+      serviceId: smart-building-rabbitmq-publisher
     rabbitsubscribe:
       path: /rabbitsubscribe/**
-      serviceId: smart_building_rabbitmq_subscriber
+      serviceId: smart-building-rabbitmq-subscriber
   sensitiveHeaders:
 
 app:
